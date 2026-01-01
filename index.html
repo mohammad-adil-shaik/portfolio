@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title> Adil Shaik's Portfolio</title>
+    <title>Adil Shaik's Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content=" " />
-    <meta name="keywords" content="" />
-    <meta content="Dragster" name="author" />
+    <meta name="description" content="Mohammad Adil Shaik - Software Engineer specializing in full-stack development, AI/ML applications, and natural language processing with 3+ years of experience at CharityAuctions." />
+    <meta name="keywords" content="software engineer, AI/ML, natural language processing, Python, React, Next.js, PyTorch, TensorFlow, full-stack developer, machine learning" />
+    <meta name="author" content="Mohammad Adil Shaik" />
 
     <link rel="shortcut icon" href="images/favicon.ico" />
 
@@ -54,18 +54,45 @@
       rel="stylesheet"
       type="text/css"
     />
+
+    <style>
+      .navbar-collapse {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+      }
+      .navbar-nav {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Prevent layout shifts and unwanted scrolling */
+      html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        height: 100%;
+        scroll-behavior: auto;
+      }
+
+      #topnav {
+        height: 80px !important;
+        min-height: 80px !important;
+      }
+
+      .hero-section {
+        margin-top: 0 !important;
+        padding-top: 140px !important;
+      }
+
+      /* Prevent page jump on load */
+      * {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+    </style>
   </head>
 
-  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="71">
-    <!-- light-dark mode button -->
-    <a
-      href="javascript: void(0);"
-      id="mode"
-      class="mode-btn text-white rounded-end"
-    >
-      <i class="uil uil-brightness mode-dark mx-auto"></i>
-      <i class="uil uil-moon bx-spin mode-light"></i>
-    </a>
+  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
 
     <!--Navbar Start-->
     <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
@@ -85,27 +112,28 @@
         </a>
 
         <button
-          class="navbar-toggler me-3 order-2 ms-4"
+          class="navbar-toggler"
           type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarCollapse"
+          id="navbarToggler"
           aria-controls="navbarCollapse"
+          aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <i class="mdi mdi-menu"></i>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav ms-auto navbar-center">
+          <ul class="navbar-nav ms-auto">
             <li class="nav-item active">
               <a href="#home" class="nav-link">Home</a>
             </li>
             <li class="nav-item dropdown dropdown-hover">
               <a href="#aboutme" class="nav-link ">About Me</a>
             </li>
-            <li class="nav-item dropdown dropdown-hover">
+
+            <!-- <li class="nav-item dropdown dropdown-hover">
               <a href="#service" class="nav-link">Service</a>
-            </li>
+            </li> -->
 
             <li class="nav-item dropdown dropdown-hover">
               <a href="#work" class="nav-link ">Work</a>
@@ -116,14 +144,15 @@
             </li>
           </ul>
           <!--end navbar-nav-->
-          <div class="ms-auto ps-2 ps-lg-0">
-            <a
-              href=""
-              class="btn btn-dark rounded-pill my-3 my-lg-0"
+          <div class="ms-3">
+            <button
+              class="btn btn-modern-feedback rounded-pill my-3 my-lg-0"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
-              >Feedback</a
             >
+              <i class="fas fa-comments me-2"></i>
+              Feedback
+            </button>
           </div>
         </div>
       </div>
@@ -131,96 +160,125 @@
     </nav>
     <!-- Navbar End -->
 
-    <!-- Modal -->
+    <!-- Modern Feedback Modal -->
     <div
       class="modal fade"
       id="exampleModal"
       tabindex="-1"
-      aria-labelledby="exampleModalLabel"
+      aria-labelledby="feedbackModalLabel"
       aria-hidden="true"
     >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Feedback</h5>
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-lg">
+          <div class="modal-header bg-gradient-primary text-white border-0">
+            <div class="d-flex align-items-center">
+              <div class="modal-icon me-3">
+                <i class="fas fa-comments text-white fs-3"></i>
+              </div>
+              <div>
+                <h5 class="modal-title mb-0" id="feedbackModalLabel">Share Your Thoughts</h5>
+                <p class="mb-0 small opacity-75">I'd love to hear your feedback!</p>
+              </div>
+            </div>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close btn-close-white"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
           </div>
           <div class="modal-body p-4">
-            <form class="row g-3 needs-validation">
+            <form class="row g-3 needs-validation" id="feedbackForm">
               <div class="col-md-6">
-                <label for="validationCustom01" class="form-label"
-                  >First name <span class="text-primary">*</span></label
-                >
+                <label for="firstName" class="form-label fw-semibold">
+                  <i class="fas fa-user me-1 text-primary"></i>
+                  First Name <span class="text-danger">*</span>
+                </label>
                 <input
                   type="text"
-                  class="form-control"
-                  id="validationCustom01"
-                  value=""
-                  required=""
+                  class="form-control form-control-modern"
+                  id="firstName"
+                  placeholder="Enter your first name"
+                  required
                 />
                 <div class="valid-feedback">Looks good!</div>
+                <div class="invalid-feedback">Please provide your first name.</div>
               </div>
               <div class="col-md-6">
-                <label for="validationCustom02" class="form-label"
-                  >Email <span class="text-primary">*</span></label
-                >
+                <label for="email" class="form-label fw-semibold">
+                  <i class="fas fa-envelope me-1 text-primary"></i>
+                  Email Address <span class="text-danger">*</span>
+                </label>
                 <input
                   type="email"
-                  class="form-control"
-                  id="validationCustom02"
-                  value=""
-                  required=""
+                  class="form-control form-control-modern"
+                  id="email"
+                  placeholder="your.email@example.com"
+                  required
                 />
-                <div class="valid-feedback">Looks good!</div>
-              </div>
-              <div class="col-md-6">
-                <label for="validationCustom03" class="form-label"
-                  >Subject <span class="text-primary">*</span></label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="validationCustom03"
-                  required=""
-                />
-                <div class="invalid-feedback">Please provide a valid city.</div>
-              </div>
-              <div class="col-md-6">
-                <label for="validationCustom05" class="form-label"
-                  >Password <span class="text-primary">*</span></label
-                >
-                <input
-                  type="password"
-                  class="form-control"
-                  id="validationCustom05"
-                  required=""
-                />
-                <div class="invalid-feedback">Please provide a valid zip.</div>
-              </div>
-              <div class="col-lg-12">
-                <label for="validationTextarea" class="form-label"
-                  >Textarea<span class="text-primary">*</span></label
-                >
-                <textarea
-                  class="form-control"
-                  id="validationTextarea"
-                  required=""
-                ></textarea>
-                <div class="invalid-feedback">
-                  You must agree before submitting.
-                </div>
+                <div class="valid-feedback">Perfect!</div>
+                <div class="invalid-feedback">Please provide a valid email address.</div>
               </div>
               <div class="col-12">
-                <button class="btn btn-primary" type="submit">
-                  Submit form
+                <label for="subject" class="form-label fw-semibold">
+                  <i class="fas fa-tag me-1 text-primary"></i>
+                  Subject <span class="text-danger">*</span>
+                </label>
+                <select
+                  class="form-select form-control-modern"
+                  id="subject"
+                  required
+                >
+                  <option value="">Choose a topic...</option>
+                  <option value="general">General Feedback</option>
+                  <option value="bug">Report a Bug</option>
+                  <option value="feature">Feature Request</option>
+                  <option value="collaboration">Collaboration Opportunity</option>
+                  <option value="other">Other</option>
+                </select>
+                <div class="invalid-feedback">Please select a subject.</div>
+              </div>
+              <div class="col-12">
+                <label for="message" class="form-label fw-semibold">
+                  <i class="fas fa-comment-dots me-1 text-primary"></i>
+                  Your Message <span class="text-danger">*</span>
+                </label>
+                <textarea
+                  class="form-control form-control-modern"
+                  id="message"
+                  rows="4"
+                  placeholder="Tell me what's on your mind... I'd love to hear your thoughts, suggestions, or any questions you have!"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">Please provide your message.</div>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="newsletterOptIn" />
+                  <label class="form-check-label text-muted small" for="newsletterOptIn">
+                    I'd like to receive occasional updates about new projects and opportunities
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 pt-3">
+                <button type="submit" class="btn btn-modern-primary w-100">
+                  <span class="btn-text">
+                    <i class="fas fa-paper-plane me-2"></i>
+                    Send Feedback
+                  </span>
+                  <span class="btn-loading d-none">
+                    <i class="fas fa-spinner fa-spin me-2"></i>
+                    Sending...
+                  </span>
                 </button>
               </div>
             </form>
+          </div>
+          <div class="modal-footer border-0 bg-light">
+            <small class="text-muted">
+              <i class="fas fa-shield-alt me-1"></i>
+              Your feedback is confidential and helps me improve
+            </small>
           </div>
         </div>
       </div>
@@ -228,374 +286,440 @@
     <!-- end modal -->
 
     <!-- home section -->
-    <section class="home-3 position-relative overflow-hidden" id="home">
-      <div class="hero-bg">
-        <div class="swiper-slide">
-          <div class="container position-relative">
-            <!-- <div class="row justify-content-center align-items-center "> -->
-            <div class="row justify-content-center align-items-stretch">
-              <div
-                class="col-lg-1 d-flex justify-content-center align-items-center"
-              >
-                <div class="home-icon">
-                  <a
-                    href="https://www.facebook.com/shaik.adil.7311"
-                    target="_blank"
-                  >
-                    <div
-                      class="social-icon facebook mb-3"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      aria-label="Facebook"
-                      data-bs-original-title="Facebook"
-                    >
-                      <i class="mdi mdi-facebook fs-20 text-primary"></i>
-                    </div>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/adil_dragster/"
-                    target="_blank"
-                  >
-                    <div
-                      class="social-icon instagram mb-3"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      aria-label="Instagram"
-                      data-bs-original-title="Instagram"
-                    >
-                      <i class="mdi mdi-instagram fs-20 text-primary"></i>
-                    </div>
-                  </a>
-                  <a href="https://github.com/mohammad-adil-shaik" target="_blank">
-                    <div
-                      class="social-icon github mb-3"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      aria-label="Github"
-                      data-bs-original-title="Github"
-                    >
-                      <i class="mdi mdi-github fs-20 text-primary"></i>
-                    </div>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/mohammadadilshaik/"
-                    target="_blank"
-                  >
-                    <div
-                      class="social-icon linkedin"
-                      data-bs-toggle="tooltip"
-                      data-bs-placement="top"
-                      aria-label="Linkedin"
-                      data-bs-original-title="Linkedin"
-                    >
-                      <i class="mdi mdi-linkedin fs-20 text-primary"></i>
-                    </div>
-                  </a>
-                  
-
-                </div>
-              </div>
-              <div class="col-lg-5 mt-5">
-                <div class="home-content position-relative">
-                  <!-- <div class="user-icon avatar-sm">
-                    <i class="mdi mdi-account fs-24"></i>
-                  </div> -->
-
-                  <h4 class="text-dark mt-4 mb-0">Hi! I am Mohammad Adil Shaik</h4>
-                  <h2 class="home-title mb-0 text-primary fw-bold">
-                    <span class="text-dark">Your</span>
-                    <span
-                      class="typewrite"
-                      data-period="2000"
-                      data-type='[ "UI/UX Designer ","Web Developer " ]'
-                    >
-                      <span class="wrap"></span>
-                    </span>
-                  </h2>
-                  <p class="text-muted mt-3 mb-0">
-                    Software Engineer crafting innovative, efficient, and user-focused solutions. I specialize in full-stack development, cloud computing, and seamless system interactions.
-                  </p>
-
-                  <div class="my-details">
-                    <div class="d-flex align-items-center mt-4">
-                      <div class="icon">
-                        <i class="mdi mdi-file-outline fs-24 text-primary"></i>
-                      </div>
-                      <div class="icon-details">
-                        <p class="fw-semibold mb-0 ms-2 text-muted fs-15">
-                          Full-Stack Developer & Software Engineer
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="d-flex align-items-center mt-2">
-                      <div class="icon">
-                        <i class="mdi mdi-email-outline fs-24 text-primary"></i>
-                      </div>
-                      <div class="icon-details">
-                        <p class="fw-semibold mb-0 ms-2 text-muted fs-15">
-                          adilshaik6571@gmail.com
-                        </p>
-                      </div>
-                    </div>
-
-                    <div class="d-flex align-items-center mt-2">
-                      <div class="icon">
-                        <i
-                          class="mdi mdi-map-marker-outline fs-24 text-primary"
-                        ></i>
-                      </div>
-                      <div class="icon-details">
-                        <p class="fw-semibold mb-0 ms-2 text-muted fs-15">
-                          USA
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="bottom-box mt-4">
-                  <p class="mb-0 fw-semibold">Download my current bio:</p>
-                  <div class="button-group d-flex mt-3">
-                    <a href="./assets/Mohammad_Adil_Shaik_Resume.pdf" target="_blank"
-                      ><button class="btn btn-dark">Download CV</button></a
-                    >
-                    <a href="#contact" class="ms-3"
-                      ><button class="btn btn-outline-primary">
-                        Contact Me
-                      </button></a
-                    >
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-lg-4 d-flex justify-content-center align-items-center"
-              >
-              
-                <div class="home-bg-image mt-4 mt-lg-0">
-                  <img src="./images/adil.JPG" alt="" class="img-fluid" />
-                  
-                </div>
-               
-              
+    <section class="hero-section position-relative overflow-hidden" id="home">
+      <!-- Elegant Background -->
+      <div class="hero-background">
+        <div class="floating-elements">
+          <div class="floating-shape shape-1"></div>
+          <div class="floating-shape shape-2"></div>
+          <div class="floating-shape shape-3"></div>
         </div>
+      </div>
+
+      <div class="container position-relative z-1">
+        <div class="row justify-content-center align-items-center" style="min-height: calc(100vh - 160px);">
+          <!-- Main Content -->
+          <div class="col-lg-8 col-xl-7 text-center">
+            <div class="hero-content">
+              <!-- Greeting Badge -->
+              <div class="hero-badge mb-4">
+                <span class="badge-modern">👋 Hello, I'm</span>
+              </div>
+
+              <!-- Name & Title -->
+              <h1 class="hero-name display-4 fw-bold text-dark mb-3">
+                Mohammad Adil Shaik
+              </h1>
+
+              <!-- Animated Title -->
+              <div class="hero-title-container mb-4">
+                <h2 class="hero-title h3 text-primary fw-bold mb-0">
+                  <span class="text-dark">I'm a </span>
+                  <span class="typewrite text-primary" data-period="2000" data-type='["Software Engineer", "Full-Stack Software Engineer", "AI/ML Engineer"]'>
+                    <span class="wrap"></span>
+                  </span>
+                </h2>
+              </div>
+
+              <!-- Professional Summary -->
+              <div class="hero-description mb-5">
+                <p class="lead text-muted mb-4" style="max-width: 600px; margin: 0 auto; line-height: 1.7;">
+                  Software Engineer with 3+ years of experience building production-grade full-stack applications, backend systems, and AI/ML solutions                </p>
+
+                <!-- Key Technologies -->
+                <div class="tech-stack mb-2">
+                  <span class="tech-badge">React</span>
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">TypeScript</span>
+                  <span class="tech-badge">Node.js</span>
+                  <span class="tech-badge">AWS</span>
+                  <span class="tech-badge">REST APIs</span>
+                </div>
+              </div>
+
+              <!-- Contact Info -->
+              <div class="my-details">
+                <div class="d-flex align-items-center justify-content-start mt-2">
+                  <div class="icon">
+                    <i class="mdi mdi-email-outline fs-24 text-primary me-3"></i>
+                  </div>
+                  <div class="icon-details">
+                    <p class="fw-semibold mb-0 text-muted fs-15">
+                      adilshaik6571@gmail.com
+                    </p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center justify-content-start mt-2">
+                  <div class="icon">
+                    <i class="mdi mdi-map-marker-outline fs-24 text-primary me-3"></i>
+                  </div>
+                  <div class="icon-details">
+                    <p class="fw-semibold mb-0 text-muted fs-15">
+                      USA
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="hero-actions">
+                <a href="./assets/Mohammad_Adil_Shaik_Resume.pdf" target="_blank" class="btn btn-primary-modern me-3 mb-3">
+                  <i class="fas fa-download me-2"></i>Download Resume
+                </a>
+                <a href="#contact" class="btn btn-outline-modern mb-3">
+                  <i class="fas fa-paper-plane me-2"></i>Get In Touch
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile Image -->
+          <div class="col-lg-4 col-xl-4 text-center">
+            <div class="profile-image-container">
+              <div class="profile-image-wrapper">
+                <img src="./images/Adil.png" alt="Mohammad Adil Shaik - Software Engineer" class="profile-image" />
+                <div class="profile-overlay">
+                  <div class="social-links">
+                    <a href="https://github.com/mohammad-adil-shaik" target="_blank" class="social-link" data-bs-toggle="tooltip" title="GitHub">
+                      <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mohammadadilshaik/" target="_blank" class="social-link" data-bs-toggle="tooltip" title="LinkedIn">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:adilshaik6571@gmail.com" class="social-link" data-bs-toggle="tooltip" title="Email">
+                      <i class="fas fa-envelope"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
     <!-- end home section -->
 
     <!-- about-me section -->
-    <section class="section about-me cover-bg" id="aboutme">
-      <!-- container -->
-      <div class="container">
-        <!-- <div class="about-box"> -->
-          <div class="row align-items-center">
-            <div class="col-lg-6 col-md-6 mt-4 mb-4">
-              <!-- <div class="image-round"></div>
-              <div class="about-image p-4 pb-0">
-                <img src="images/about.png" alt="" class="img-fluid" />
-              </div>
-            </div> -->
+    <section class="about-section position-relative overflow-hidden" id="aboutme">
+      <!-- Elegant Background -->
+      <div class="hero-background">
+        <div class="floating-elements">
+          <div class="floating-shape shape-1"></div>
+          <div class="floating-shape shape-2"></div>
+          <div class="floating-shape shape-3"></div>
+        </div>
+      </div>
+      <div class="container position-relative z-1">
+        <!-- About Header -->
+        <div class="row justify-content-center mb-5">
+          <div class="col-lg-8 text-center">
+            <div class="about-header">
+              <span class="section-label">About Me</span>
+              <h2 class="section-title">Software Engineer</h2>
+              <div class="title-underline"></div>
+            </div>
+          </div>
+        </div>
 
-              <div
-                class="bg-half-260 overflow-hidden rounded-md shadow-md jarallax"
-                data-jarallax
-                data-speed="0.2"
-                style="background: url('./images/about.jpg')"
-              ></div>
+        <!-- About Content -->
+        <div class="row align-items-center mb-5">
+          <div class="col-12 text-center">
+            <div class="about-content">
+              <div class="content-highlight" data-aos="fade-up">
+                <p class="content-text" data-aos="fade-up" data-aos-delay="200">
+                  Dedicated Software Engineer with 3+ years of experience in full-stack development,
+                  backend systems, and AI/ML applications. Specialized in Python, natural language
+                  processing, and optimized data structures.
+                </p>
+                <p class="content-text" data-aos="fade-up" data-aos-delay="400">
+                  Currently serving as a Graduate Teaching Assistant for Artificial Intelligence at
+                  UNC Charlotte while interning at CharityAuctions.
+                </p>
+              </div>
+              <!-- Key Stats -->
+              <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="600">
+                  <div class="stat-number">3+</div>
+                  <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="800">
+                  <div class="stat-number">4.0</div>
+                  <div class="stat-label">GPA (Master's)</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="1000">
+                  <div class="stat-number">30+</div>
+                  <div class="stat-label">Projects</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Experience, Leadership & Education Tabs -->
+        <div class="tabbed-section">
+          <!-- Tab Navigation & Content Container -->
+          <div class="tabs-wrapper">
+            <!-- Tab Navigation -->
+            <div class="tabs-sidebar">
+              <div class="tabs-list">
+                <button class="tab-item active" data-tab="experience" data-aos="fade-up" data-aos-delay="200">
+                  <div class="tab-icon">
+                    <i class="fas fa-briefcase"></i>
+                  </div>
+                  <div class="tab-text">
+                    <span class="tab-title">Experience</span>
+                    <span class="tab-subtitle">Professional Journey</span>
+                  </div>
+                </button>
+                <button class="tab-item" data-tab="leadership" data-aos="fade-up" data-aos-delay="400">
+                  <div class="tab-icon">
+                    <i class="fas fa-users-cog"></i>
+                  </div>
+                  <div class="tab-text">
+                    <span class="tab-title">Leadership</span>
+                    <span class="tab-subtitle">Community Impact</span>
+                  </div>
+                </button>
+                <button class="tab-item" data-tab="education" data-aos="fade-up" data-aos-delay="600">
+                  <div class="tab-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <div class="tab-text">
+                    <span class="tab-title">Education</span>
+                    <span class="tab-subtitle">Academic Background</span>
+                  </div>
+                </button>
+              </div>
             </div>
 
-            <div class="col-lg-6 about-box">
-              <div class="about-item p-5">
-                <h2 class="display-5 fw-semibold">About Me</h2>
-                <p class="text-muted fs-14">
-                  Experienced software engineer proficient in full-stack development, creating scalable and intuitive applications. Passionate about cloud computing, data engineering, and enhancing user-centric interactions.
-                </p>
+            <!-- Tab Content -->
+            <div class="tabs-content">
+            <!-- Experience Tab -->
+            <div class="tab-content active" id="experience">
+              <div class="experience-section" data-aos="fade-up" data-aos-delay="800">
+                <div class="section-header mb-4">
+                  <h3 class="section-title-modern">
+                    <i class="fas fa-briefcase me-2"></i>
+                    Professional Experience
+                  </h3>
+                  <div class="title-underline-modern"></div>
+                </div>
 
-                <ul
-                  class="nav nav-pills mb-3 mt-4 pt-2"
-                  id="pills-tab"
-                  role="tablist"
-                >
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link active"
-                      id="pills-home-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-home"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-home"
-                      aria-selected="true"
-                    >
-                      Skills
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      id="pills-profile-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-profile"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-profile"
-                      aria-selected="false"
-                    >
-                      Experience
-                    </button>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <button
-                      class="nav-link"
-                      id="pills-contact-tab"
-                      data-bs-toggle="pill"
-                      data-bs-target="#pills-contact"
-                      type="button"
-                      role="tab"
-                      aria-controls="pills-contact"
-                      aria-selected="false"
-                    >
-                      Education
-                    </button>
-                  </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                  <div
-                    class="tab-pane fade show active"
-                    id="pills-home"
-                    role="tabpanel"
-                    aria-labelledby="pills-home-tab"
-                  >
-                    <div class="skill-item mt-4 pt-2">
-                      <div class="d-flex justify-content-between">
-                        <h6>Development</h6>
-                        <h6>90%</h6>
-                      </div>
-                      <div class="progress" style="height: 5px">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          aria-valuenow="90"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                          style="width:90%"
-                        ></div>
-                      </div>
+                <div class="experience-timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-marker">
+                      <div class="timeline-dot"></div>
                     </div>
-
-                    <div class="skill-item mt-4 pt-2">
-                      <div class="d-flex justify-content-between">
-                        <h6>Design</h6>
-                        <h6>95%</h6>
-                      </div>
-                      <div class="progress" style="height: 5px">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          aria-valuenow="95"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                          style="width:95%"
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div class="skill-item mt-4 pt-2">
-                      <div class="d-flex justify-content-between">
-                        <h6>Data Engineering</h6>
-                        <h6>93%</h6>
-                      </div>
-                      <div class="progress" style="height: 5px">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          aria-valuenow="93"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                          style="width:93%"
-                        ></div>
-                      </div>
-                    </div>
-
-                    <div class="skill-item mt-4 pt-2">
-                      <div class="d-flex justify-content-between">
-                        <h6>Problem Solving</h6>
-                        <h6>98%</h6>
-                      </div>
-                      <div class="progress" style="height: 5px">
-                        <div
-                          class="progress-bar"
-                          role="progressbar"
-                          aria-valuenow="98"
-                          aria-valuemin="0"
-                          aria-valuemax="100"
-                          style="width:98%"
-                        ></div>
-                      </div>
-                    </div>
-
-                    
-                  </div>
-                  <div
-                    class="tab-pane fade"
-                    id="pills-profile"
-                    role="tabpanel"
-                    aria-labelledby="pills-profile-tab"
-                  >
-                    <div class="experience">
-                      <div class="row position-relative">
-                        <div class="col-2">
-                          <div class="border-left"></div>
+                    <div class="timeline-content">
+                      <div class="experience-card-modern">
+                        <div class="card-header-modern">
+                          <div class="position-info">
+                            <h4 class="position-title">Software Engineer Intern — CharityAuctions</h4>
+                            <div class="company-location">
+                              <i class="fas fa-map-marker-alt me-1"></i>
+                              Remote, USA | July 2025 – Present
+                            </div>
+                          </div>
                         </div>
-                        <div class="col-10">
-                          <div class="mt-4 pt-2">
-                            <h5>Software Engineer Intern</h5>
-                            <p class="text-muted fs-15">Dec 2023 - May 2024</p>
-                            <p class="text-muted fs-15">
-                              As a software engineer intern, I'm eager to learn and contribute to impactful projects. With a strong foundation in programming and a passion for problem-solving, I strive to enhance my skills and collaborate effectively within a team. Dedicated to mastering advanced technologies and delivering efficient solutions
-                            </p>
+                        <div class="card-body-modern">
+                          <p class="position-description">
+                            Working on production-grade features for the Auction 2.0 platform using React, Next.js, Node.js, and Python. Contributing to backend services, REST API integrations, and performance improvements for scalable auction and bidding workflows.
+                          </p>
+                          <div class="tech-stack-mini">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">PostgreSQL</span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div
-                    class="tab-pane fade"
-                    id="pills-contact"
-                    role="tabpanel"
-                    aria-labelledby="pills-contact-tab"
-                  >
-                    <div class="experience">
-                      <div class="row position-relative">
-                        <div class="col-2">
-                          <div class="border-left"></div>
+
+                  <div class="timeline-item">
+                    <div class="timeline-marker">
+                      <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                      <div class="experience-card-modern">
+                        <div class="card-header-modern">
+                          <div class="position-info">
+                            <h4 class="position-title">Software Engineer — Creative Central</h4>
+                            <div class="company-location">
+                              <i class="fas fa-map-marker-alt me-1"></i>
+                              Remote, India | June 2022 – June 2024
+                            </div>
+                          </div>
                         </div>
-                        <div class="col-10">
-                          <div class="mt-4 pt-2">
-                            <h5>Computer Science and Engineering</h5>
-                            <p class="text-muted fs-15 mb-0">
-                              <b> G Pulla Reddy Engineering College</b>
-                            </p>
-                            <p class="text-muted fs-15 mb-0">
-                              Aspiring Computer Science and Engineering student
-                              driven by innovation and problem-solving
-                            </p>
+                        <div class="card-body-modern">
+                          <p class="position-description">
+                            Developed full-stack web applications and digital solutions using modern JavaScript frameworks and backend technologies. Focused on responsive UI development, performance optimization, and delivering user-focused solutions in collaboration with cross-functional teams.
+                          </p>
+                          <div class="tech-stack-mini">
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Express.js</span>
+                            <span class="tech-tag">GitHub Actions (CI/CD)</span>
+                            <span class="tech-tag">UI/UX</span>
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
 
-                      <div class="row position-relative">
-                        <div class="col-2">
-                          <div class="border-left"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Leadership Tab -->
+            <div class="tab-content" id="leadership">
+              <div class="leadership-section" data-aos="fade-up" data-aos-delay="800">
+                <div class="section-header mb-4">
+                  <h3 class="section-title-modern">
+                    <i class="fas fa-users-cog me-2"></i>
+                    Leadership & Involvement
+                  </h3>
+                  <div class="title-underline-modern"></div>
+                </div>
+
+                <div class="experience-timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-marker">
+                      <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                      <div class="experience-card-modern">
+                        <div class="card-header-modern">
+                          <div class="position-info">
+                            <h4 class="position-title">Graduate Teaching Assistant — Artificial Intelligence</h4>
+                            <div class="company-location">
+                              <i class="fas fa-map-marker-alt me-1"></i>
+                              University of North Carolina at Charlotte | August 2024 – December 2025
+                            </div>
+                          </div>
                         </div>
-                        <div class="col-10">
-                          <div class="mt-4 pt-2">
-                            <h5>Master's in Data Science</h5>
-                            <p class="text-muted fs-15 mb-0">
-                              <b> University of North Carolina at Charlotte</b>
-                            </p>
-                            <p class="text-muted fs-15">
-                              Driven by a passion for cutting-edge technology, innovative solutions, and solving complex problems with creativity and precision
-                            </p>
+                        <div class="card-body-modern">
+                          <p class="position-description">
+                            Supported graduate-level Artificial Intelligence courses by assisting students with machine learning, NLP, and AI assignments. Conducted office hours, evaluated coursework, and provided technical guidance in Python-based AI projects.
+                          </p>
+                          <div class="tech-stack-mini">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">NLP</span>
+                            <span class="tech-tag">Generative AI</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="timeline-marker">
+                      <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                      <div class="experience-card-modern">
+                        <div class="card-header-modern">
+                          <div class="position-info">
+                            <h4 class="position-title">TEDxGPREC — Organizer</h4>
+                            <div class="company-location">
+                              <i class="fas fa-map-marker-alt me-1"></i>
+                              G Pulla Reddy Engineering College | June 2022 – December 2023
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body-modern">
+                          <p class="position-description">
+                            Coordinated and managed key aspects of TEDxGPREC events, including event planning, speaker coordination, and on-ground execution. Collaborated with cross-functional teams to ensure smooth event operations and meaningful community engagement.
+                          </p>
+                          <div class="tech-stack-mini">
+                            <span class="tech-tag">Event Management</span>
+                            <span class="tech-tag">Speaker Coordination</span>
+                            <span class="tech-tag">Team Collaboration</span>
+                            <span class="tech-tag">Community Engagement</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Education Tab -->
+            <div class="tab-content" id="education">
+              <div class="education-section" data-aos="fade-up" data-aos-delay="800">
+                <div class="section-header mb-4">
+                  <h3 class="section-title-modern">
+                    <i class="fas fa-graduation-cap me-2"></i>
+                    Education
+                  </h3>
+                  <div class="title-underline-modern"></div>
+                </div>
+
+                <div class="experience-timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-marker">
+                      <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                      <div class="experience-card-modern">
+                        <div class="card-header-modern">
+                          <div class="position-info">
+                            <h4 class="position-title">Master of Science in Computer Science</h4>
+                            <div class="company-location">
+                              <i class="fas fa-map-marker-alt me-1"></i>
+                              University of North Carolina at Charlotte | May 2026
+                            </div>
+                          </div>
+                          <div class="gpa-info">GPA: 4.0 / 4.0</div>
+                        </div>
+                        <div class="card-body-modern">
+                          <p class="position-description">
+                            Focused on artificial intelligence, machine learning, and advanced software systems, with coursework emphasizing applied AI, algorithms, and data-driven system design.
+                          </p>
+                          <div class="tech-stack-mini">
+                            <span class="tech-tag">Artificial Intelligence</span>
+                            <span class="tech-tag">Machine Learning</span>
+                            <span class="tech-tag">Advanced Algorithms</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="timeline-item">
+                    <div class="timeline-marker">
+                      <div class="timeline-dot"></div>
+                    </div>
+                    <div class="timeline-content">
+                      <div class="experience-card-modern">
+                        <div class="card-header-modern">
+                          <div class="position-info">
+                            <h4 class="position-title">Bachelor of Technology in Computer Science</h4>
+                            <div class="company-location">
+                              <i class="fas fa-map-marker-alt me-1"></i>
+                              G Pulla Reddy Engineering College | June 2024
+                            </div>
+                          </div>
+                          <div class="gpa-info">GPA: 8.05 / 10.0</div>
+                        </div>
+                        <div class="card-body-modern">
+                          <p class="position-description">
+                            Built a strong foundation in computer science fundamentals, data structures, algorithms, and software engineering through academic coursework and project-based learning.
+                          </p>
+                          <div class="tech-stack-mini">
+                            <span class="tech-tag">Data Structures</span>
+                            <span class="tech-tag">Algorithms</span>
+                            <span class="tech-tag">Software Engineering</span>
                           </div>
                         </div>
                       </div>
@@ -607,13 +731,9 @@
           </div>
         </div>
       </div>
-      <!-- end container -->
-    
     </section>
     
-    <!-- end about-me -->
-    <!--Service Start-->
-    <section class="section cover-bg" id="service">
+    <!-- <section class="section cover-bg" id="service">
     <div class="container  ">
       <br/>
       <div class="row justify-content-center">
@@ -627,121 +747,127 @@
               collaborate closely to achieve their vision<br/><br/><br/>
             </p>
           </div>
-        </div>
+        </div> -->
         <!--end col-->
-      </div>
+      <!-- </div> -->
       <!--end row-->
 
-      <div class="row box">
+      <!-- <div class="row box">
         <div class="col-md-4 mt-4 pt-2  ">
           <div
             class="card features feature-primary feature-clean work-process bg-transparent process-arrow border-0 text-center"
           >
             <div class="icons text-center mx-auto">
-              <!-- <i class="uil uil-presentation-edit rounded h3 mb-0"></i> -->
-              <i class="fal fa-users rounded h3 mb-0"></i>
+              <i class="fas fa-brain rounded h3 mb-0"></i>
             </div>
 
             <div class="card-body   ">
-              <h5 class="text-dark">Client Collaboration</h5>
+              <h5 class="text-dark">AI/ML & NLP Solutions</h5>
               <p class="text-muted mb-0">
-                Define project scope, timeline, and budget through collaborative
-                agreement
+                Developing intelligent applications using Python, PyTorch, TensorFlow, and Hugging Face for natural language processing and machine learning solutions
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
         <!--end col-->
-      
-        <div class="col-md-4 mt-md-5 pt-md-3 mt-4 pt-2">
+
+        <!-- <div class="col-md-4 mt-md-5 pt-md-3 mt-4 pt-2">
           <div
             class="card features feature-primary feature-clean work-process bg-transparent process-arrow border-0 text-center"
           >
             <div class="icons text-center mx-auto">
-              <i class="fal fa-file-code rounded h3 mb-0"></i>
+              <i class="fab fa-react rounded h3 mb-0"></i>
             </div>
 
             <div class="card-body">
-              <h5 class="text-dark">Development &amp; Design</h5>
+              <h5 class="text-dark">Full-Stack Web Development</h5>
               <p class="text-muted mb-0">
-                Craft tailored websites or apps, prioritizing seamless
-                functionality and user experience
+                Building scalable applications using React/Next.js, Node.js, Python frameworks, and optimized data structures with REST APIs
               </p>
             </div>
           </div>
-        </div>
+        </div> -->
         <!--end col-->
-        
-        <div class="col-md-4 mt-md-5 pt-md-5 mt-4 pt-2">
+
+        <!-- <div class="col-md-4 mt-md-5 pt-md-5 mt-4 pt-2">
           <div
             class="card features feature-primary feature-clean work-process bg-transparent d-none-arrow border-0 text-center"
           >
             <div class="icons text-center mx-auto">
-              <i class="fal fa-shield-check rounded h3 mb-0"></i>
+              <i class="fas fa-code-branch rounded h3 mb-0"></i>
             </div>
 
             <div class="card-body">
-              <h5 class="text-dark">Testing &amp; Refinement</h5>
+              <h5 class="text-dark">Algorithm Optimization & Data Structures</h5>
               <p class="text-muted mb-0">
-                Execute comprehensive testing and refine based on client input
-                for optimal performance
+                Implementing efficient algorithms, data structures (trees, graphs, hash maps), and performance optimizations for scalable solutions
               </p><br/><br/>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!--end col-->
-      </div>
+      <!-- </div> -->
       <!--end row-->
 
       <!-- Partners start -->
-    
-    <div class="container pt-5 " style="opacity: 50%;">
+
+    <!-- <div class="container pt-5 " style="opacity: 50%;">
       <div class="row justify-content-center">
           <div class="col-lg-2 col-md-2 col-6 text-center">
-              <img src="./images/svg/angular-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="">
-          </div><!--end col-->
+              <img src="./images/svg/python-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="Python & AI/ML">
+          </div>
 
           <div class="col-lg-2 col-md-2 col-6 text-center">
-              <img src="./images/svg/database-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="">
-          </div><!--end col-->
-          
-          <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
-              <img src="./images/svg/js-badge-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="">
-          </div><!--end col-->
-          
-          <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
-              <img src="./images/svg/html5-02-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="">
-          </div><!--end col-->
-          
-          <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
-              <img src="./images/svg/node-16-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="">
-          </div><!--end col-->
-          
-          <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
-              <img src="./images/svg/python-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="">
+              <img src="./images/svg/js-badge-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="JavaScript/TypeScript">
           </div>
-        
-          
+          <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
+              <img src="./images/svg/node-16-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="Node.js">
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
+              <img src="./images/svg/database-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="Databases">
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
+              <img src="./images/svg/html5-02-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="React/Next.js">
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
+              <img src="./images/svg/angular-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="Angular">
+          </div>
+
+
 
         </div>
-      </div>
+      </div> -->
           <!--Partners end-->
 
-    </div></section> 
-    <!--Service End-->
+    <!-- </div></section>  -->
+    
+
     <!-- <div id="work" style="margin-bottom: 100px"></div> -->
 
     <!--Work Start-->
-    <section class="section cover-bg" id="work">
-    <div class="container  "><br/>
+    <section class="hero-section position-relative overflow-hidden" id="work">
+      <!-- Elegant Background -->
+      <div class="hero-background">
+        <div class="floating-elements">
+          <div class="floating-shape shape-1"></div>
+          <div class="floating-shape shape-2"></div>
+          <div class="floating-shape shape-3"></div>
+        </div>
+      </div>
+
+    <div class="container position-relative z-1">
       <div class="row justify-content-center ">
         <div class="col-12 text-center">
-          <div class="section-title mb-4 pb-2 ">
-            <h4 class="title mb-4">Work</h4>
+          <div class="badge-modern mb-4 pb-2 ">
+            <span class="work-section-label">Work</span>
+            <h2 class="section-title-main">Production & Engineering Work</h2>
+            <div class="title-underline-modern mb-4"></div>
             <p class="text-muted para-desc mx-auto mb-0">
-              Past<span class="text-primary fw-bold"> milestones</span> pave the
-              path for future success
+              Real-world software systems, AI applications and full-stack projects
             </p>
           </div>
         </div>
@@ -749,59 +875,175 @@
       </div>
       <!--end row-->
 
-      <div class="row  box"> 
-        <div class="col-md-4 col-12 mt-5 pt-4  ">
-          <div class="features feature-primary">
-            <div class="image position-relative d-inline-block">
-              <i class="fal fa-code h2 text-primary"></i>
+      <!-- Project Showcase -->
+      <div class="project-showcase">
+        <div class="row g-4">
+          <!-- Project 1 - CharityAuctions (Featured) -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card-modern featured">
+              <div class="project-card-header">
+                <div class="project-icon">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="project-category">Professional</div>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">CharityAuctions - Auction Platform</h5>
+                <p class="project-description">
+                  Working on production-grade features for Auction 2.0 platform using React, Next.js, Node.js, and Python. Contributing to backend services and performance improvements.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-badge">React</span>
+                  <span class="tech-badge">Next.js</span>
+                  <span class="tech-badge">Production</span>
+                </div>
+              </div>
+              <div class="project-card-footer">
+                <span class="project-status">Currently Working</span>
+              </div>
             </div>
+          </div>
 
-            <div class="content mt-4"><br/>
-              <h5>Projects</h5>
-              <p class="text-muted mb-0">
-                Completed projects speak volumes of experience gained
-              </p><br/><br/></div><a href="https://github.com/mohammad-adil-shaik/Projects" class="read-more" target="_blank">Read More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right fea icon-sm"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-            
-          </div><br/>
-        </div>
-        <!--end col-->
-
-        <div class="col-md-4 col-12 mt-5 pt-4 ">
-          <div class="features feature-primary">
-            <div class="image position-relative d-inline-block">
-              <i class="fab fa-github h2 text-primary"></i>
+          <!-- Project 2 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="project-card-modern">
+              <div class="project-card-header">
+                <div class="project-icon">
+                  <i class="fas fa-robot"></i>
+                </div>
+                <div class="project-category">AI / ML</div>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">AI-Powered Chatbot using GPT API</h5>
+                <p class="project-description">
+                  Built a conversational chatbot using the GPT API with prompt engineering, context management, and backend validation for reliable responses.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">GPT API</span>
+                  <span class="tech-badge">NLP</span>
+                </div>
+              </div>
+              <div class="project-card-footer">
+                <a href="https://github.com/mohammad-adil-shaik" class="project-link" target="_blank">
+                  <i class="fab fa-github me-2"></i>View Code
+                </a>
+              </div>
             </div>
+          </div>
 
-            <div class="content mt-4"><br/>
-              <h5>Github</h5>
-              <p class="text-muted mb-0">
-                Explore our code repository on GitHub for a glimpse into my
-                coding journey and expertise
-              </p><br/><br/>
-            </div><a href="https://github.com/mohammad-adil-shaik" class="read-more" target="_blank">Read More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right fea icon-sm"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-            
-          </div><br/>
-        </div>
-        <!--end col-->
-
-        <div class="col-md-4 col-12 mt-5 pt-4">
-          <div class="features feature-primary">
-            <div class="image position-relative d-inline-block">
-              <i class="fal fa-file-user h2 text-primary"></i>
+          <!-- Project 3 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="project-card-modern">
+              <div class="project-card-header">
+                <div class="project-icon">
+                  <i class="fas fa-video"></i>
+                </div>
+                <div class="project-category">Computer Vision</div>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">GVHMR – Generative Video Human Mesh Recovery</h5>
+                <p class="project-description">
+                  Implemented a deep learning pipeline to reconstruct 3D human meshes from video using computer vision and optimized model inference.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">PyTorch</span>
+                  <span class="tech-badge">Computer Vision</span>
+                </div>
+              </div>
+              <div class="project-card-footer">
+                <a href="https://github.com/mohammad-adil-shaik" class="project-link" target="_blank">
+                  <i class="fab fa-github me-2"></i>View Code
+                </a>
+              </div>
             </div>
+          </div>
 
-            <div class="content mt-4"><br/>
-              <h5>Resume</h5>
-              <p class="text-muted mb-0">
-                My resume reflects a journey of passion, dedication, and
-                expertise in the field
-              </p><br/> <br/>
-            </div><a href="./assets/Mohammad_Adil_Shaik_Resume.pdf" class="read-more" target="_blank">Read More <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right fea icon-sm"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-            
-          </div><br/>
+          <!-- Project 4 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card-modern">
+              <div class="project-card-header">
+                <div class="project-icon">
+                  <i class="fas fa-heartbeat"></i>
+                </div>
+                <div class="project-category">Health Tech</div>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">Health-Focused Wellness Tracking Application</h5>
+                <p class="project-description">
+                  Developed a full-stack wellness tracking app with a React frontend and Python backend for health data analysis.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-badge">React</span>
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">Flask</span>
+                </div>
+              </div>
+              <div class="project-card-footer">
+                <a href="https://github.com/mohammad-adil-shaik" class="project-link" target="_blank">
+                  <i class="fab fa-github me-2"></i>View Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="project-card-modern">
+              <div class="project-card-header">
+                <div class="project-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="project-category">Analytics</div>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">ChronoPulse – Real-Time Analytics Dashboard</h5>
+                <p class="project-description">
+                  Built a real-time analytics dashboard with scalable backend services and interactive data visualizations.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">Flask</span>
+                  <span class="tech-badge">React</span>
+                </div>
+              </div>
+              <div class="project-card-footer">
+                <a href="https://github.com/mohammad-adil-shaik" class="project-link" target="_blank">
+                  <i class="fab fa-github me-2"></i>View Code
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="project-card-modern">
+              <div class="project-card-header">
+                <div class="project-icon">
+                  <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="project-category">System Design</div>
+              </div>
+              <div class="project-card-body">
+                <h5 class="project-title">QR-Based Attendance System with GPS Verification</h5>
+                <p class="project-description">
+                  Created a secure attendance system using QR codes and GPS validation with end-to-end backend and frontend integration.
+                </p>
+                <div class="project-tech">
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">Geolocation</span>
+                  <span class="tech-badge">Full-Stack</span>
+                </div>
+              </div>
+              <div class="project-card-footer">
+                <a href="https://github.com/mohammad-adil-shaik" class="project-link" target="_blank">
+                  <i class="fab fa-github me-2"></i>View Code
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-        <!--end col-->
-        
       </div>
       <!--end row-->
       <!--end col-->
@@ -810,385 +1052,323 @@
      <br/>
         <!-- Partners start -->
     
-    <div class="container pt-5">
+    <!-- <div class="container pt-5">
       <div class="row justify-content-center">
           <div class="col-lg-2 col-md-2 col-6 text-center">
-              <img src="./images/svg/amazon.svg" class="avatar avatar-ex-sm" alt="">
-          </div><!--end col-->
+              <img src="./images/svg/amazon.svg" class="avatar avatar-ex-sm" alt="AWS">
+          </div>
 
           <div class="col-lg-2 col-md-2 col-6 text-center">
-              <img src="./images/svg/google.svg" class="avatar avatar-ex-sm" alt="">
-          </div><!--end col-->
-          
+              <img src="./images/svg/google.svg" class="avatar avatar-ex-sm" alt="Google Cloud">
+          </div>
+
           <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
-              <img src="./images/svg/lenovo.svg" class="avatar avatar-ex-sm" alt="">
-          </div><!--end col-->
-          
+              <img src="./images/svg/database-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="PostgreSQL/MongoDB">
+          </div>
+
           <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
-              <img src="./images/svg/paypal.svg" class="avatar avatar-ex-sm" alt="">
-          </div><!--end col-->
-          
+              <img src="./images/svg/python-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="PyTorch/TensorFlow">
+          </div>
+
           <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
-              <img src="./images/svg/shopify.svg" class="avatar avatar-ex-sm" alt="">
-          </div><!--end col-->
-          
+              <img src="./images/svg/node-16-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="Docker">
+          </div>
+
           <div class="col-lg-2 col-md-2 col-6 text-center mt-4 mt-sm-0">
-              <img src="./images/svg/spotify.svg" class="avatar avatar-ex-sm" alt="">
-          </div>  </div></div>
+              <img src="./images/svg/js-badge-svgrepo-com.svg" class="avatar avatar-ex-sm" alt="GitHub Actions">
+          </div>  </div></div> -->
           <!--Partners end-->
      <br/></section>
     <!--Work End-->
 
     <!--Contact Me Start-->
-    <section class="section cover-bg" id="contact">
-    <div class="container  mt-60  ">
+    <section class="hero-section position-relative overflow-hidden" id="contact">
+      <!-- Elegant Background -->
+      <div class="hero-background">
+        <div class="floating-elements">
+          <div class="floating-shape shape-1"></div>
+          <div class="floating-shape shape-2"></div>
+          <div class="floating-shape shape-3"></div>
+        </div>
+      </div>
+
+      <!-- Decorative Elements -->
+      <div class="contact-decorations">
+        <div class="decoration-circle circle-1"></div>
+        <div class="decoration-circle circle-2"></div>
+        <div class="decoration-dots dots-1"></div>
+        <div class="decoration-dots dots-2"></div>
+      </div>
+
+    <div class="container position-relative z-1">
       <div class="row justify-content-center">
-        <div class="col-12 box"><br/>
-          <div class="section-title mb-4 pb-2 ">
-            <h4 class="title mb-4">Contact Me</h4>
-            <p class="text-muted para-desc mb-0">
-              Ready to
-              <span class="text-primary fw-bold">discuss your project?</span>
-              Reach out to me for personalized solutions tailored to your needs
-              and goals
-            </p>
+        <div class="col-12 text-center">
+          <div class="contact-header-wrapper" data-aos="fade-down" data-aos-delay="100">
+            <div class="badge-modern mb-4 pb-2">
+              <span class="section-label">Contact Me</span>
+              <h2 class="section-title-main">Ready to discuss your project?</h2>
+              <div class="title-underline mb-4"></div>
+              <p class="text-muted para-desc mx-auto mb-0">
+                Reach out to me for personalized solutions tailored to your needs and goals
+              </p>
+            </div>
           </div>
         </div>
         <!--end col-->
       </div>
       <!--end row-->
 
-      <div class="row">
-        <div class="col-lg-4 col-md-6 mt-4 pt-2">
-          <div class="card rounded shadow border-0">
-            <div class="card-body">
-              <h4 class="card-title">Get In Touch !</h4>
 
-              <div class="custom-form mt-3">
-                <form
-                  method="post"
-                  name="myForm"
-                  id="myForm"
-                  onsubmit="return validateForm()"
-                >
-                  <p id="error-msg" class="mb-0"></p>
-                  <div id="simple-msg"></div>
-                  <div class="row">
-                    <div class="col-12">
-                      <div class="mb-3">
-                        <label class="form-label"
-                          >Your Name <span class="text-danger">*</span></label
-                        >
-                        <div class="form-icon position-relative">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="feather feather-user fea icon-sm icons"
-                          >
-                            <path
-                              d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
-                            ></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                          </svg>
-                          <input
-                            name="name"
-                            id="name"
-                            type="text"
-                            class="form-control ps-5"
-                            placeholder="Name :"
-                          />
-                        </div>
-                      </div>
-                    </div>
+      <!-- Contact Form -->
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="contact-form-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+            <div class="form-header">
+              <h4 class="form-title">Send Me a Message</h4>
+              <p class="form-subtitle">I'd love to hear from you. Let's discuss your next project!</p>
+            </div>
 
-                    <div class="col-12">
-                      <div class="mb-3">
-                        <label class="form-label"
-                          >Your Email <span class="text-danger">*</span></label
-                        >
-                        <div class="form-icon position-relative">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="feather feather-mail fea icon-sm icons"
-                          >
-                            <path
-                              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                            ></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                          </svg>
-                          <input
-                            name="email"
-                            id="email"
-                            type="email"
-                            class="form-control ps-5"
-                            placeholder="Email :"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <!--end col-->
-
-                    <div class="col-12">
-                      <div class="mb-3">
-                        <label class="form-label">Subject</label>
-                        <div class="form-icon position-relative">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="feather feather-book fea icon-sm icons"
-                          >
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                            <path
-                              d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"
-                            ></path>
-                          </svg>
-                          <input
-                            name="subject"
-                            id="subject"
-                            class="form-control ps-5"
-                            placeholder="subject :"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                    <!--end col-->
-
-                    <div class="col-12">
-                      <div class="mb-3">
-                        <label class="form-label"
-                          >Comments <span class="text-danger">*</span></label
-                        >
-                        <div class="form-icon position-relative">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="feather feather-message-circle fea icon-sm icons clearfix"
-                          >
-                            <path
-                              d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
-                            ></path>
-                          </svg>
-                          <textarea
-                            name="comments"
-                            id="comments"
-                            rows="4"
-                            class="form-control ps-5"
-                            placeholder="Message :"
-                          ></textarea>
-                        </div>
+            <div class="custom-form">
+              <form
+                method="post"
+                name="myForm"
+                id="myForm"
+              >
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <div class="form-group-modern">
+                      <label class="form-label-modern">
+                        Your Name
+                      </label>
+                      <div class="input-group-modern">
+                        <span class="input-icon">
+                          <i class="fas fa-user"></i>
+                        </span>
+                        <input
+                          name="name"
+                          id="name"
+                          type="text"
+                          class="form-control-modern"
+                          placeholder="Enter your name"
+                          required
+                        />
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="col-12">
-                      <div class="d-grid">
-                        <button
-                          type="submit"
-                          id="submit"
-                          name="send"
-                          class="btn btn-primary"
-                        >
-                          Send Message
-                        </button>
+
+                  <div class="col-md-6">
+                    <div class="form-group-modern">
+                      <label class="form-label-modern">
+                        Your Email
+                      </label>
+                      <div class="input-group-modern">
+                        <span class="input-icon">
+                          <i class="fas fa-envelope"></i>
+                        </span>
+                        <input
+                          name="email"
+                          id="email"
+                          type="email"
+                          class="form-control-modern"
+                          placeholder="Enter your email"
+                          required
+                        />
                       </div>
                     </div>
-                    <!--end col-->
                   </div>
-                  <!--end row-->
-                </form>
-              </div>
-              <!--end custom-form-->
+
+                  <div class="col-12">
+                    <div class="form-group-modern">
+                      <label class="form-label-modern">Subject</label>
+                      <div class="input-group-modern">
+                        <span class="input-icon">
+                          <i class="fas fa-tag"></i>
+                        </span>
+                        <input
+                          name="subject"
+                          id="subject"
+                          type="text"
+                          class="form-control-modern"
+                          placeholder="What's this about?"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <div class="form-group-modern">
+                      <label class="form-label-modern">
+                        Message
+                      </label>
+                      <div class="input-group-modern">
+                        <span class="input-icon textarea-icon">
+                          <i class="fas fa-comment"></i>
+                        </span>
+                        <textarea
+                          name="comments"
+                          id="comments"
+                          rows="5"
+                          class="form-control-modern"
+                          placeholder="Tell me about your project..."
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <button type="submit" class="btn-modern-primary">
+                      <span class="btn-text">Send Message</span>
+                      <span class="btn-icon">
+                        <i class="fas fa-paper-plane"></i>
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
+      </div>
         <!--end col-->
 
-        <div class="col-lg-8 col-md-6 ps-md-3 pe-md-3 mt-4 pt-2">
-          <div class="card border-0 shadow rounded">
-            <div class="map map-height-two map-gray">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d406.95017605041784!2d-80.74264594678192!3d35.31588432057045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541c15eb8fb4c5%3A0x5671a7ca6b481843!2s205%20Barton%20Creek%20Dr!5e0!3m2!1sen!2sin!4v1737242773194!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-          </div>
-        </div>
-        <!--end col-->
       </div>
       <!--end row-->
     </div>
     <br /><br /></section>
     <!--Contact Me End-->
 
-    <!-- start footer -->
-    <section class="footer">
-      <!-- start container -->
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="mt-5">
-              <a class="logo text-uppercase" href="index.html">
-                <img
-                  src="images/logo-light.png"
-                  class="logo-light"
-                  alt=""
-                  style="max-height: 2.5rem"
-                />
-                <!-- <img src="images/logo-light.png" class="logo-dark" alt="" height="28"> -->
-              </a>
-              <p class="fs-15 text-white-50 mt-4">
-                Independent software engineer specializing in full-stack development, cloud computing, and data engineering, dedicated to delivering innovative, scalable solutions that exceed client expectations
-              </p>
+    <!-- Modern Footer Design -->
+    <footer class="modern-footer">
+      <div class="footer-container">
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+          <div class="container-fluid">
+            <div class="footer-grid">
+              <!-- Brand Section -->
+              <div class="footer-brand">
+                <div class="brand-header">
+                  <a href="index.html" class="brand-logo">
+                    <img src="images/logo-light.png" alt="Mohammad Adil Shaik" class="logo-image">
+                  </a>
+                  <div class="brand-tagline">
+                    <span class="tagline-text">Software Engineer</span>
+                    <div class="tagline-accent"></div>
+                  </div>
+                </div>
 
-              <div class="icon-item mt-4">
-                <div class="d-flex">
-                  <a
-                    href="https://www.facebook.com/shaik.adil.7311"
-                    target="_blank"
-                  >
-                    <div class="social-icon facebook avatar-xs">
-                      <i class="mdi mdi-facebook"></i>
-                    </div>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/adil_dragster/"
-                    target="_blank"
-                  >
-                    <div class="social-icon instagram avatar-xs">
-                      <i class="mdi mdi-instagram"></i>
-                    </div>
-                  </a>
-                  <a href="https://twitter.com/shaikadil019" target="_blank">
-                    <div class="social-icon twitter avatar-xs">
-                      <i class="mdi mdi-twitter"></i>
-                    </div>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/mohammadadilshaik/"
-                    target="_blank"
-                  >
-                    <div class="social-icon linkedin avatar-xs">
-                      <i class="mdi mdi-linkedin"></i>
-                    </div>
-                  </a>
-                  <a href="https://github.com/mohammad-adil-shaik" target="_blank">
-                    <div class="social-icon github avatar-xs">
-                      <i class="mdi mdi-github"></i>
-                    </div>
-                  </a>
+                <p class="brand-description">
+                  Crafting intelligent solutions through AI/ML and full-stack development.
+                  Building production-grade applications at CharityAuctions.
+                </p>
+
+                <!-- Modern Social Links -->
+                <div class="social-networks">
+                  <div class="social-label">
+                    <i class="fas fa-share-alt"></i>
+                    <span>Connect with me</span>
+                  </div>
+                  <div class="social-links-grid">
+                    <a href="https://www.linkedin.com/in/mohammadadilshaik/" class="social-link linkedin" target="_blank" aria-label="LinkedIn">
+                      <i class="fab fa-linkedin-in"></i>
+                      <span class="social-tooltip">LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/mohammad-adil-shaik" class="social-link github" target="_blank" aria-label="GitHub">
+                      <i class="fab fa-github"></i>
+                      <span class="social-tooltip">GitHub</span>
+                    </a>
+                    <a href="https://twitter.com/shaikadil019" class="social-link twitter" target="_blank" aria-label="Twitter">
+                      <i class="fab fa-twitter"></i>
+                      <span class="social-tooltip">Twitter</span>
+                    </a>
+                    <a href="mailto:adilshaik6571@gmail.com" class="social-link email" aria-label="Email">
+                      <i class="fas fa-envelope"></i>
+                      <span class="social-tooltip">Email</span>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-2 mt-4">
-            <h5 class="text-white">Portfolio</h5>
 
-            <ul class="footer-text list-unstyled mt-4">
-              <li>
-                <a href="#"><i class="mdi mdi-arrow-right me-2"></i>Home</a>
-              </li>
-              <li>
-                <a href="#aboutme"
-                  ><i class="mdi mdi-arrow-right me-2"></i>About Me</a
-                >
-              </li>
-              <li>
-                <a href="#service"
-                  ><i class="mdi mdi-arrow-right me-2"></i>Service</a
-                >
-              </li>
-              <li>
-                <a href="#work"><i class="mdi mdi-arrow-right me-2"></i>Work</a>
-              </li>
-              <li>
-                <a href="#contact"
-                  ><i class="mdi mdi-arrow-right me-2"></i>Contact Me</a
-                >
-              </li>
-            </ul>
-          </div>
+              <!-- Navigation Section -->
+              <div class="footer-nav">
+                <h3 class="footer-heading">
+                  <i class="fas fa-compass"></i>
+                  Navigation
+                </h3>
+                <nav class="footer-menu">
+                  <a href="#home" class="menu-link">
+                    <span class="link-icon"><i class="fas fa-home"></i></span>
+                    <span class="link-text">Home</span>
+                    <span class="link-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </a>
+                  <a href="#aboutme" class="menu-link">
+                    <span class="link-icon"><i class="fas fa-user"></i></span>
+                    <span class="link-text">About Me</span>
+                    <span class="link-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </a>
+                  <a href="#work" class="menu-link">
+                    <span class="link-icon"><i class="fas fa-briefcase"></i></span>
+                    <span class="link-text">Work</span>
+                    <span class="link-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </a>
+                  <a href="#contact" class="menu-link">
+                    <span class="link-icon"><i class="fas fa-envelope"></i></span>
+                    <span class="link-text">Contact</span>
+                    <span class="link-arrow"><i class="fas fa-chevron-right"></i></span>
+                  </a>
+                </nav>
+              </div>
 
-          <div class="col-lg-3 mt-4">
-            <h5 class="text-white">Linkedin</h5>
-            <div class="row">
-              <div class="col-lg-10">
-                <div class="linkedin-box mt-4">
-                  <p class="mb-0 text-white-50 fs-15 mb-2">
-                    Reach out here for professional discussions
-                  </p>
-                  <a
-                    href="https://www.linkedin.com/in/mohammadadilshaik/"
-                    class="fs-15"
-                    target="_blank"
-                    >@adilshaik.com</a
-                  >
+              <!-- Contact Section -->
+              <div class="footer-contact">
+                <h3 class="footer-heading">
+                  <i class="fas fa-paper-plane"></i>
+                  Get In Touch
+                </h3>
+                <div class="contact-card">
+                  <div class="contact-item">
+                    <div class="contact-icon">
+                      <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                      <span class="contact-label">Location</span>
+                      <span class="contact-value">USA</span>
+                    </div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="contact-icon">
+                      <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                      <span class="contact-label">Email</span>
+                      <span class="contact-value">adilshaik6571@gmail.com</span>
+                    </div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="contact-icon">
+                      <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-info">
+                      <span class="contact-label">Available for</span>
+                      <span class="contact-value">Freelance & Full-time</span>
+                    </div>
+                  </div>
                 </div>
+
+                <!-- CTA Button -->
+                <a href="#contact" class="cta-button">
+                  <span class="cta-text">Start a Project</span>
+                  <span class="cta-icon">
+                    <i class="fas fa-arrow-right"></i>
+                  </span>
+                </a>
               </div>
             </div>
-
-            <div class="linkedin-content d-flex align-items-center">
-              <div class="icon">
-                <i class="mdi mdi-linkedin text-white fs-40"></i>
-              </div>
-              <div class="icon-content ms-2">
-                <a href="#" class="text-white-50">Linkedin</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4">
-            <h5 class="text-white">Sign up</h5>
-            <p class="mb-0 text-white-50 mt-4">
-              Follow our newsletter to stay updated about my works
-            </p> 
-            <div class="input-group my-3">
-              <input
-                type="text"
-                class="form-control p-3"
-                placeholder="subscribe"
-                aria-label="subscribe"
-                aria-describedby="basic-addon2"
-              />
-              <a
-                href=""
-                class="input-group-text bg-primary text-white px-4"
-                id="basic-addon2"
-                >Go</a
-              >
-            </div> 
-            <p></p> 
           </div>
         </div>
-      </div>
 
-      <!-- end container -->
-    </section>
+      </div>
+    </footer>
 
     <section class="bottom-footer py-4">
       <div class="container">
@@ -1207,30 +1387,6 @@
       </div>
     </section>
     <!-- end footer -->
-    <!--Back to top Start-->
-    <a
-      href="#"
-      onclick="topFunction()"
-      id="back-to-top"
-      class="back-to-top fs-5"
-      style="display: block"
-      ><svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-arrow-up fea icon-sm icons align-middle"
-      >
-        <line x1="12" y1="19" x2="12" y2="5"></line>
-        <polyline points="5 12 12 5 19 12"></polyline>
-      </svg>
-    </a>
-    <!--Back to Top End-->
     <!--Bootstrap Js-->
     <script src="js/bootstrap.bundle.min.js"></script>
 
@@ -1245,7 +1401,18 @@
     <!-- Jarallax JS -->
     <script src="https://cdn.jsdelivr.net/npm/jarallax@2/dist/jarallax.min.js"></script>
 
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <!-- App Js -->
     <script src="js/app.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+      });
+    </script>
   </body>
 </html>
