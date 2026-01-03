@@ -54,48 +54,61 @@
       rel="stylesheet"
       type="text/css"
     />
-
+    
     <style>
-      .navbar-collapse {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-      }
-      .navbar-nav {
+      /* Page layout fixes */
+      html, body {
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
       }
-
-      /* Prevent layout shifts and unwanted scrolling */
-      html, body {
-        margin: 0 !important;
-        padding: 0 !important;
-        height: 100%;
-        scroll-behavior: auto;
+      
+      /* Navbar height */
+      #navbar {
+        min-height: 74px;
       }
-
-      #topnav {
-        height: 80px !important;
-        min-height: 80px !important;
+      
+      /* Navbar sticky styling */
+      #navbar.nav-sticky {
+        background: #fff !important;
+        box-shadow: 0 0 3px rgba(60, 72, 88, 0.15);
       }
-
-      .hero-section {
-        margin-top: 0 !important;
-        padding-top: 140px !important;
+      
+      /* Hero section spacing - add padding for fixed navbar */
+      #home.hero-section {
+        padding-top: 100px;
       }
-
-      /* Prevent page jump on load */
-      * {
-        -webkit-transform: translateZ(0);
-        transform: translateZ(0);
+      
+      /* About section spacing */
+      #aboutme {
+        padding-top: 100px;
+      }
+      
+      /* Work and Contact sections */
+      #work, #contact {
+        padding-top: 100px;
+      }
+      
+      /* Ensure sections have proper spacing */
+      section {
+        position: relative;
+      }
+      
+      /* Container alignment */
+      .container, .container-fluid {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
       }
     </style>
   </head>
 
-  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
+  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="71">
 
     <!--Navbar Start-->
-    <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
+    <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar" style="background-color: transparent;">
       <div class="container-fluid custom-container">
         <a class="navbar-brand logo text-uppercase" href="index.html">
           <img
@@ -465,7 +478,7 @@
             <!-- Tab Navigation -->
             <div class="tabs-sidebar">
               <div class="tabs-list">
-                <button class="tab-item active" data-tab="experience" data-aos="fade-up" data-aos-delay="200">
+                <button type="button" class="tab-item active" data-tab="experience" data-aos="fade-up" data-aos-delay="200">
                   <div class="tab-icon">
                     <i class="fas fa-briefcase"></i>
                   </div>
@@ -474,7 +487,7 @@
                     <span class="tab-subtitle">Professional Journey</span>
                   </div>
                 </button>
-                <button class="tab-item" data-tab="leadership" data-aos="fade-up" data-aos-delay="400">
+                <button type="button" class="tab-item" data-tab="leadership" data-aos="fade-up" data-aos-delay="400">
                   <div class="tab-icon">
                     <i class="fas fa-users-cog"></i>
                   </div>
@@ -483,7 +496,7 @@
                     <span class="tab-subtitle">Community Impact</span>
                   </div>
                 </button>
-                <button class="tab-item" data-tab="education" data-aos="fade-up" data-aos-delay="600">
+                <button type="button" class="tab-item" data-tab="education" data-aos="fade-up" data-aos-delay="600">
                   <div class="tab-icon">
                     <i class="fas fa-graduation-cap"></i>
                   </div>
