@@ -10605,8 +10605,13 @@ body[data-layout-mode="dark"] .section-title-main {
 /* Responsive Design for Hero Section */
 @media (max-width: 768px) {
   .hero-section {
+    min-height: auto;
+    padding: 2.5rem 1rem 2.5rem;
+  }
+
+  #home.hero-section {
     min-height: calc(100vh - 140px);
-    padding: 3rem 1rem 2rem;
+    padding-top: 100px;
   }
 
   .hero-name {
@@ -10776,9 +10781,14 @@ body[data-layout-mode="dark"] .section-title-main {
 
 @media (max-width: 576px) {
   .hero-section {
+    margin-top: 0;
+    min-height: auto;
+    padding: 2.25rem 1rem 2rem;
+  }
+
+  #home.hero-section {
     margin-top: 60px;
     min-height: calc(100vh - 120px);
-    padding: 2rem 1rem 1rem;
   }
 
   .hero-name {
