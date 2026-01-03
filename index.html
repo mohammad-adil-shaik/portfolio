@@ -158,14 +158,13 @@
           </ul>
           <!--end navbar-nav-->
           <div class="ms-3">
-            <button
+            <a
+              href="#contact"
               class="btn btn-modern-feedback rounded-pill my-3 my-lg-0"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
             >
               <i class="fas fa-comments me-2"></i>
               Feedback
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -173,130 +172,6 @@
     </nav>
     <!-- Navbar End -->
 
-    <!-- Modern Feedback Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="feedbackModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content border-0 shadow-lg">
-          <div class="modal-header bg-gradient-primary text-white border-0">
-            <div class="d-flex align-items-center">
-              <div class="modal-icon me-3">
-                <i class="fas fa-comments text-white fs-3"></i>
-              </div>
-              <div>
-                <h5 class="modal-title mb-0" id="feedbackModalLabel">Share Your Thoughts</h5>
-                <p class="mb-0 small opacity-75">I'd love to hear your feedback!</p>
-              </div>
-            </div>
-            <button
-              type="button"
-              class="btn-close btn-close-white"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body p-4">
-            <form class="row g-3 needs-validation" id="feedbackForm">
-              <div class="col-md-6">
-                <label for="firstName" class="form-label fw-semibold">
-                  <i class="fas fa-user me-1 text-primary"></i>
-                  First Name <span class="text-danger">*</span>
-                </label>
-                <input
-                  type="text"
-                  class="form-control form-control-modern"
-                  id="firstName"
-                  placeholder="Enter your first name"
-                  required
-                />
-                <div class="valid-feedback">Looks good!</div>
-                <div class="invalid-feedback">Please provide your first name.</div>
-              </div>
-              <div class="col-md-6">
-                <label for="email" class="form-label fw-semibold">
-                  <i class="fas fa-envelope me-1 text-primary"></i>
-                  Email Address <span class="text-danger">*</span>
-                </label>
-                <input
-                  type="email"
-                  class="form-control form-control-modern"
-                  id="email"
-                  placeholder="your.email@example.com"
-                  required
-                />
-                <div class="valid-feedback">Perfect!</div>
-                <div class="invalid-feedback">Please provide a valid email address.</div>
-              </div>
-              <div class="col-12">
-                <label for="subject" class="form-label fw-semibold">
-                  <i class="fas fa-tag me-1 text-primary"></i>
-                  Subject <span class="text-danger">*</span>
-                </label>
-                <select
-                  class="form-select form-control-modern"
-                  id="subject"
-                  required
-                >
-                  <option value="">Choose a topic...</option>
-                  <option value="general">General Feedback</option>
-                  <option value="bug">Report a Bug</option>
-                  <option value="feature">Feature Request</option>
-                  <option value="collaboration">Collaboration Opportunity</option>
-                  <option value="other">Other</option>
-                </select>
-                <div class="invalid-feedback">Please select a subject.</div>
-              </div>
-              <div class="col-12">
-                <label for="message" class="form-label fw-semibold">
-                  <i class="fas fa-comment-dots me-1 text-primary"></i>
-                  Your Message <span class="text-danger">*</span>
-                </label>
-                <textarea
-                  class="form-control form-control-modern"
-                  id="message"
-                  rows="4"
-                  placeholder="Tell me what's on your mind... I'd love to hear your thoughts, suggestions, or any questions you have!"
-                  required
-                ></textarea>
-                <div class="invalid-feedback">Please provide your message.</div>
-              </div>
-              <div class="col-12">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="newsletterOptIn" />
-                  <label class="form-check-label text-muted small" for="newsletterOptIn">
-                    I'd like to receive occasional updates about new projects and opportunities
-                  </label>
-                </div>
-              </div>
-              <div class="col-12 pt-3">
-                <button type="submit" class="btn btn-modern-primary w-100">
-                  <span class="btn-text">
-                    <i class="fas fa-paper-plane me-2"></i>
-                    Send Feedback
-                  </span>
-                  <span class="btn-loading d-none">
-                    <i class="fas fa-spinner fa-spin me-2"></i>
-                    Sending...
-                  </span>
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer border-0 bg-light">
-            <small class="text-muted">
-              <i class="fas fa-shield-alt me-1"></i>
-              Your feedback is confidential and helps me improve
-            </small>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end modal -->
 
     <!-- home section -->
     <section class="hero-section position-relative overflow-hidden" id="home">
