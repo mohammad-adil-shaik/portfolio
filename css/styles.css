@@ -11650,7 +11650,7 @@ body[data-layout-mode="dark"] .decoration-dots::after {
 
 .contact-methods {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
   margin-bottom: 3rem;
 }
@@ -11793,6 +11793,7 @@ body[data-layout-mode="dark"] .decoration-dots::after {
   }
 
   .contact-methods {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
