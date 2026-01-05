@@ -356,6 +356,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const navbarToggler = document.querySelector('.navbar-toggler');
   const navbarCollapse = document.getElementById('navbarCollapse');
   const navLinks = document.querySelectorAll('#navbarCollapse .nav-link');
+  const feedbackBtn = document.querySelector('#navbarCollapse .btn-modern-feedback');
 
   // Toggle navbar on button click
   if (navbarToggler && navbarCollapse) {
@@ -371,6 +372,14 @@ document.addEventListener('DOMContentLoaded', function() {
         navbarToggler.setAttribute('aria-expanded', 'false');
       });
     });
+
+    // Close navbar when clicking on feedback button
+    if (feedbackBtn) {
+      feedbackBtn.addEventListener('click', function() {
+        navbarCollapse.classList.remove('show');
+        navbarToggler.setAttribute('aria-expanded', 'false');
+      });
+    }
 
     // Close navbar when clicking outside
     document.addEventListener('click', function(event) {
