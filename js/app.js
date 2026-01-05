@@ -25,47 +25,6 @@ window.addEventListener('scroll', () => {
 
 
 //
-/********************* light-dark js ************************/
-//
-
-
-
-
-// tiny slide **** home
-
-try {
-  var slider = tns({
-    container: '.home-slider',
-    loop: true,
-    autoplay: false,
-    mouseDrag: true,
-    controls: true,
-    navPosition: "bottom",
-    nav: false,
-    autoplayTimeout: 5000,
-    speed: 900,
-    center: false,
-    animateIn: "fadeIn",
-    animateOut: "fadeOut",
-    controlsText: ['&#8592;', '&#8594;'],
-    autoplayButtonOutput: false,
-    gutter: 30,
-    responsive: {
-
-      992: {
-        gutter: 30,
-        items: 1
-      },
-
-    }
-  });
-
-} catch (error) {
-
-}
-
-
-
 // text-animation
 
 try {
@@ -167,38 +126,6 @@ try {
 
 
 
-// tiny slide **** home
-
-try {
-  var slider = tns({
-    container: '.work-slider',
-    loop: true,
-    autoplay: true,
-    mouseDrag: true,
-    controls: true,
-    navPosition: "bottom",
-    nav: false,
-    autoplayTimeout: 5000,
-    speed: 900,
-    center: false,
-    animateIn: "fadeIn",
-    animateOut: "fadeOut",
-    controlsText: ['&#8592;', '&#8594;'],
-    autoplayButtonOutput: false,
-    gutter: 30,
-    responsive: {
-
-      992: {
-        gutter: 30,
-        items: 3
-      },
-
-    }
-  });
-
-} catch (error) {
-
-}
 
 
 try {
@@ -211,90 +138,14 @@ try {
 }
 
 
-// 
-// home-5
-
-
-try {
-  var slider = tns({
-    container: '.home5-slider',
-    loop: true,
-    autoplay: true,
-    mouseDrag: true,
-    controls: false,
-    navPosition: "bottom",
-    nav: false,
-    autoplayTimeout: 5000,
-    speed: 900,
-    center: false,
-    animateIn: "fadeIn",
-    animateOut: "fadeOut",
-    controlsText: ['&#8592;', '&#8594;'],
-    autoplayButtonOutput: false,
-    items:2,
-    gutter: 30,
-    responsive: {
-
-      992: {
-        gutter: 30,
-        items: 3
-      },
-
-      576:{
-        gutter: 30,
-        items: 2
-      }
-
-    }
-  });
-
-} catch (error) {
-
-}
 
 
 
 
-// 
-// home-5
 
 
-try {
-  var slider = tns({
-    container: '.home6-slider',
-    loop: true,
-    autoplay: true,
-    mouseDrag: true,
-    controls: false,
-    navPosition: "bottom",
-    nav: false,
-    autoplayTimeout: 5000,
-    speed: 900,
-    center: false,
-    animateIn: "fadeIn",
-    animateOut: "fadeOut",
-    controlsText: ['&#8592;', '&#8594;'],
-    autoplayButtonOutput: false,
-    items:2,
-    gutter: 30,
-    responsive: {
 
-      992: {
-        gutter: 30,
-        items: 2.5
-      },
 
-      576:{
-        gutter: 30,
-        items: 2
-      }
-
-    }
-  });
-
-} catch (error) {
-
-}
 
 
 
