@@ -306,8 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const tabContents = document.querySelectorAll('.tab-content');
 
   tabItems.forEach(item => {
-    item.addEventListener('click', function(event) {
-      event.preventDefault();
+    item.addEventListener('click', function() {
       const tabId = this.getAttribute('data-tab');
 
       // Remove active class from all items and contents
@@ -317,6 +316,37 @@ document.addEventListener('DOMContentLoaded', function() {
       // Add active class to clicked item and corresponding content
       this.classList.add('active');
       document.getElementById(tabId).classList.add('active');
+    });
+  });
+});
+
+// Project Filter Functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectItems = document.querySelectorAll('.project-item');
+
+  // Ensure all projects are visible on page load
+  projectItems.forEach(item => item.classList.remove('hidden'));
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+
+      // Add active class to clicked button
+      this.classList.add('active');
+
+      const filterValue = this.getAttribute('data-filter');
+
+      projectItems.forEach(item => {
+        const category = item.getAttribute('data-category') || '';
+
+        if (filterValue === 'all' || category === filterValue) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
     });
   });
 });
@@ -351,3 +381,4 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+

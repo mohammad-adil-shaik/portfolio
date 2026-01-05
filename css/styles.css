@@ -9311,7 +9311,7 @@ body[data-layout-mode="dark"] .section-title-main {
 .btn-modern-feedback {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: none;
-  color: white;
+  color: white !important;
   padding: 0.625rem 1.5rem;
   font-weight: 500;
   font-size: 0.9rem;
@@ -9324,11 +9324,13 @@ body[data-layout-mode="dark"] .section-title-main {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
   background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
-  color: white;
+  color: white !important;
 }
 
-.btn-modern-feedback:active {
-  transform: translateY(0);
+.btn-modern-feedback:active,
+.btn-modern-feedback:focus,
+.btn-modern-feedback:visited {
+  color: white !important;
 }
 
 .btn-modern-feedback::before {
@@ -9390,6 +9392,90 @@ body[data-layout-mode="dark"] .section-title-main {
   margin-bottom: 1.5rem;
   line-height: 1.2;
   letter-spacing: -0.02em;
+}
+
+/* Project Filter */
+.project-filter {
+  padding: 2rem 0 1rem 0;
+  text-align: center;
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.25rem;
+  border: 2px solid rgba(99, 102, 241, 0.3);
+  background: transparent;
+  color: #64748b;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.filter-btn:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-color: #6366f1;
+  color: white;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+}
+
+/* Mobile Filter Styles */
+@media (max-width: 768px) {
+  .filter-buttons {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .filter-btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    min-width: 100px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .filter-btn:hover {
+    transform: none; /* Disable hover transform on mobile for better touch experience */
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-buttons {
+    gap: 0.4rem;
+    padding: 0 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    min-width: 90px;
+  }
+}
+
+.project-item {
+  transition: all 0.3s ease;
+}
+
+.project-item.hidden {
+  display: none;
 }
 
 /* Project Showcase */
