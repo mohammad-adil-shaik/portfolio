@@ -14,7 +14,6 @@ function windowScroll() {
   }
 }
 
-
 // Handle scroll events without preventing default behavior
 window.addEventListener('scroll', () => {
   windowScroll();
@@ -90,39 +89,6 @@ try {
 
 
 
-// swiper slider
-
-try {
-  new Swiper('.swiper-container', {
-    loop: true,
-    slidesPerView: 3,
-    paginationClickable: true,
-    spaceBetween: 20,
-    pagination: '.swiper-pagination',
-    slidesPerView: 'auto',
-    paginationClickable: true,
-    spaceBetween: 0,
-    centeredSlides: true,
-    speed: 1500,
-    breakpoints: {
-      1920: {
-        slidesPerView: 3,
-        spaceBetween: 30
-      },
-      1028: {
-        slidesPerView: 2,
-        spaceBetween: 30
-      },
-      768: {
-        slidesPerView: 1,
-        spaceBetween: 10
-      }
-    }
-  });
-
-} catch (error) {
-
-}
 
 
 
