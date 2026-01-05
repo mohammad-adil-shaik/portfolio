@@ -147,24 +147,70 @@ document.addEventListener('DOMContentLoaded', function() {
 
   filterButtons.forEach(button => {
     button.addEventListener('click', function() {
-      // Remove active class from all buttons
-      filterButtons.forEach(btn => btn.classList.remove('active'));
+      try {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => btn.classList.remove('active'));
 
-      // Add active class to clicked button
-      this.classList.add('active');
+        // Add active class to clicked button
+        this.classList.add('active');
 
-      const filterValue = this.getAttribute('data-filter');
+        const filterValue = this.getAttribute('data-filter');
 
-      projectItems.forEach(item => {
-        const category = item.getAttribute('data-category') || '';
+        projectItems.forEach(item => {
+          const category = item.getAttribute('data-category') || '';
 
-        if (filterValue === 'all' || category === filterValue) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
+          if (filterValue === 'all' || category === filterValue) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        // Ensure contact section remains accessible after filtering
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          contactSection.style.display = 'block';
+          contactSection.style.visibility = 'visible';
+          contactSection.style.opacity = '1';
         }
-      });
+
+        // Re-initialize AOS for any newly visible elements
+        if (typeof AOS !== 'undefined') {
+          AOS.refresh();
+        }
+
+      } catch (error) {
+        console.error('Filter error:', error);
+      }
     });
+  });
+});
+
+// Mobile Contact Section Safeguard
+document.addEventListener('DOMContentLoaded', function() {
+  // Ensure contact section is always visible on mobile
+  function ensureContactVisibility() {
+    const contactSection = document.getElementById('contact');
+    if (contactSection && window.innerWidth <= 768) {
+      contactSection.style.display = 'block';
+      contactSection.style.visibility = 'visible';
+      contactSection.style.opacity = '1';
+      contactSection.style.position = 'relative';
+      contactSection.style.zIndex = '1';
+    }
+  }
+
+  // Check on page load
+  ensureContactVisibility();
+
+  // Check on window resize
+  window.addEventListener('resize', ensureContactVisibility);
+
+  // Check after any filter interactions
+  document.addEventListener('click', function(event) {
+    if (event.target.closest('.filter-btn')) {
+      setTimeout(ensureContactVisibility, 100);
+    }
   });
 });
 

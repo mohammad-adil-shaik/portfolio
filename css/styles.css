@@ -11887,6 +11887,20 @@ body[data-layout-mode="dark"] .decoration-dots::after {
     font-size: 1rem;
   }
 
+  /* Ensure contact section is always visible on mobile */
+  #contact {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    min-height: auto;
+    position: relative;
+  }
+
+  #contact .container {
+    position: relative;
+    z-index: 1;
+  }
+
   .contact-methods {
     grid-template-columns: 1fr;
     gap: 1.5rem;
